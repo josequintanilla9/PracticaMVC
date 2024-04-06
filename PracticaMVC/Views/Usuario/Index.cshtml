@@ -1,0 +1,109 @@
+﻿<h1>Helpers</h1>
+<br />
+<form>
+	<div class="form-group row mb-4">
+		<div class="col-sm-2">
+			<label>Nombre usuario</label>
+		</div>
+		<div class="col-sm-4">
+			@Html.TextBox("nombre_usuario", "", new {@class="form-control"})
+		</div>
+	</div>
+
+	<div class="form-group row mb-4">
+		<div class="col-sm-2">
+			<label>Password</label>
+		</div>
+		<div class="col-sm-4">
+			@Html.Password("contrasena", "", new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="form-group row mb-4">
+		<div class="col-sm-2">
+			<label>Genero</label>
+		</div>
+		<div class="col-sm-4">
+			@Html.RadioButton("Genero", "Masculino", true, new{id = "masculino"})
+			Masculino
+
+			@Html.RadioButton("Genero", "Femenino", false, new { id = "femenino" })
+			Femenino
+		</div>
+	</div>
+
+	<div class="form-group row mb-4">
+		<div class="col-sm-2">
+			<label>Dirección</label>
+		</div>
+		<div class="col-sm-4">
+			@Html.TextArea("Direccion", "Ingrese su dirección", new { @class = "form-control", id = "idDireccion" })
+		</div>
+	</div>
+
+	<div class="form-group row mb-4">
+		<div class="col-sm-2">
+			<label>Pasatiempos</label>
+		</div>
+		<div class="col-sm-4">
+			
+			<label>
+				@Html.CheckBox("Bailar")
+				Bailar
+			</label>
+
+			<label>
+				@Html.CheckBox("Correr")
+				Correr
+			</label>
+
+			<label>
+				@Html.CheckBox("Escalar")
+				Escalar
+			</label>
+
+			<label>
+				@Html.CheckBox("Peliculas")
+				Peliculas
+			</label>
+		</div>
+	</div>
+
+
+	<div class="form-group row mb-4">
+		<div class="col-sm-2">
+			<label>Cursos</label>
+		</div>
+		<div class="col-sm-4">
+			@{
+				IEnumerable<string> strList = new List<string> { "POO", "TW", "MAT3", "FIS1" };
+			}
+
+			@Html.DropDownList("ddlCurso", new SelectList(strList,
+			strList.FirstOrDefault()), "-- Seleccionar Curso ----")
+		</div>
+	</div>
+
+
+	<div class="form-group row mb-4">
+		<div class="col-sm-2">
+			<label>Conocimientos</label>
+		</div>
+		<div class="col-sm-4">
+			@Html.ListBox("Seleccionar habilidades", new List<SelectListItem>{
+				new SelectListItem {Text="C#", Value="1"},
+				new SelectListItem {Text="ASP:NET", Value="2"},
+				new SelectListItem {Text="ASP.NET CORE", Value="3"},
+				new SelectListItem {Text="Azure", Value="4"},
+
+			})
+		</div>
+	</div>
+
+	<div class="form-group row mb-4">
+		<div class="col-sm-4">
+			<button type="submit" class="btn btn-success">Enviar datos</button>
+		</div>
+	</div>
+
+</form>
